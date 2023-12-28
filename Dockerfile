@@ -1,8 +1,7 @@
-FROM haproxy:2.9.1-alpine
+FROM haproxy:2.9.1-alpine3.19
 
 EXPOSE 2375
 
-LABEL org.opencontainers.image.version=2.9.1
 LABEL org.opencontainers.image.title="yfhme/dock-sock-prox"
 LABEL org.opencontainers.image.description="a proxy for the docker socket"
 LABEL org.opencontainers.image.url="https://github.com/yfhme/dock-sock-prox"
