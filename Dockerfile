@@ -1,6 +1,15 @@
 FROM haproxy:2.9.1-alpine
-#USER root
+
 EXPOSE 2375
+
+LABEL org.opencontainers.image.version=2.9.1
+LABEL org.opencontainers.image.title="yfhme/dock-sock-prox"
+LABEL org.opencontainers.image.description="a proxy for the docker socket"
+LABEL org.opencontainers.image.url="https://github.com/yfhme/dock-sock-prox"
+LABEL org.opencontainers.image.vendor="yfhme"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
+LABEL org.opencontainers.image.source="https://github.com/yfhme/dock-sock-prox"
+
 ENV ALLOW_RESTARTS=0 \
     ALLOW_STOP=0 \
     ALLOW_START=0 \
@@ -31,7 +40,5 @@ ENV ALLOW_RESTARTS=0 \
     VERSION=1 \
     VOLUMES=0
 
-#COPY docker-entrypoint.sh /docker-entrypoint.sh
-#ENTRYPOINT [ "sh", "/docker-entrypoint.sh" ]
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
-#CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
+
